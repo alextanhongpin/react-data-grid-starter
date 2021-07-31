@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import ReactDataGrid, { TextEditor } from "react-data-grid";
+import ReactDataGrid, { TextEditor, SelectColumn } from "react-data-grid";
 
 const columns = [
+  SelectColumn,
   {
     key: "id",
     name: "ID",
@@ -37,12 +38,16 @@ function App() {
   return (
     <ReactDataGrid
       minHeight={150}
+      defaultColumnOptions={{
+        sortable: true,
+        resizable: true,
+      }}
       columns={columns}
       rows={rows}
       rowKeyGetter={(row) => row.id}
       onRowsChange={setRows}
       selectedRows={selectedRows}
-      setSelectedRows={setSelectedRows}
+      onSelectedRowsChange={setSelectedRows}
       rowClass={(row) => (row.valid ? undefined : "error")}
     />
   );
