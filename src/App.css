@@ -1,7 +1,11 @@
 .error {
-  color: red;
+  background-color: rgba(174, 0, 0, 0.1);
 }
 .error .rdg-cell {
-  background-color: red;
-  color: white;
+  /*color: red;*/
+}
+
+.rdg-cell .error {
+  color: red;
+  border-color: red;
 }
